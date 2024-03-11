@@ -1,0 +1,17 @@
+[Unit]
+Description=My Web app
+After=cloud-final.service
+
+[Service]
+ExecStart=/usr/bin/node /home/ec2-user/webapp/server.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=webapp-logs
+User=ec2-user
+EnvironmentFile=/home/ec2-user/webapp/.env
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=cloud-init.target

@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "6740737-17a16bf8-ae2f-3da9-9d6b-3c9e4072f218",
+		"name": "Webapp"
+	},
+	"item": [
+		{
+			"name": "healthz test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{URL}}/healthz",
+					"protocol": "http",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"healthz"
+					]
+				}
+			},
+			"response": [
+				{
+                    "name": "Successful response",
+                    "status": "OK",
+                    "code": 200
+                }
+			]
+		},
+		{
+			"name": "Create new user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{$randomEmail}}\",\n    \"password\": \"test123!\",\n    \"first_name\": \"{{$randomFirstName}}\",\n    \"last_name\": \"{{$randomLastName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{URL}}/v1/user",
+					"protocol": "http",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+                    "name": "User Created",
+                    "status": "Created",
+                    "code": 201
+                }
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "demo.anitaawspractice.me",
+			"type": "string"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
