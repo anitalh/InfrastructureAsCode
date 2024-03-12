@@ -70,7 +70,7 @@ variable "db_username" {
 
 variable "db_password" {
   type    = string
-  default = "Antpassword123!"
+  default = "Abcdabcd"
 }
 
 variable "db_identifier" {
